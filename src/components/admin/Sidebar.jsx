@@ -11,7 +11,7 @@ function Sidebar() {
         <hr/>
         <ul className="nav nav-pills flex-column mb-auto">
             <li className="nav-item">
-                <Link to="/home" className="nav-link link-body-emphasis" aria-current="page">
+                <Link to="/" className="nav-link link-body-emphasis" aria-current="page">
                     <img className="sidebar-img" src="../src/assets/Home.png"/>
                     Home
                 </Link>
