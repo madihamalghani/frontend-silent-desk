@@ -32,7 +32,7 @@ function Navbar() {
                     {isAuthorized && (
                         <>
                             <li className="nav-item"><Link to="/createclass" className="nav-link navlinks fontnav text-white">Create Class</Link></li>
-                            <li className="nav-item"><Link to="/joinclasshtml" className="nav-link navlinks fontnav text-white">Join Class</Link></li>
+                            <li className="nav-item"><Link to="/join/class" className="nav-link navlinks fontnav text-white">Join Class</Link></li>
                             <li className="nav-item"><Link to="/allclasses" className="nav-link navlinks fontnav text-white">All Classes</Link></li>
                             <li className="nav-item"><Link to="/admin/dashboard" className="nav-link navlinks fontnav text-white">Admin Dashboard</Link></li>
                             <li className="nav-item"><Link to="/studentDashboard" className="nav-link navlinks fontnav text-white">Student Dashboard</Link></li>

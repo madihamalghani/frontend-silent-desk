@@ -32,7 +32,6 @@ function AdminClass() {
         }
     }, [isAuthorized, navigateTo]);
 
-    // ✅ Prevents unmounting issues
     if (isAuthorized === undefined) {
         return <p>Loading...</p>;
     }

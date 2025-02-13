@@ -10,6 +10,7 @@ import Login from './components/auth.js/Login.jsx';
 import Register from './components/auth.js/Register.jsx';
 import AdminClass from './components/class/AdminClass.jsx';
 import CreateClass from './components/class/CreateClass.jsx';
+import JoinClass from './components/class/JoinClass.jsx';
 import MemberClass from './components/class/MemberClass.jsx';
 import Home from './components/homePage/Home.jsx';
 import NotFound from './components/notFound/notFound.jsx';
@@ -48,7 +49,7 @@ function App() {
         <Route path="/admin/dashboard" element={<AdminDashboard/>} />
         <Route path="/admin/classes" element={<AdminClass/>} />
         <Route path="/member/classes" element={<MemberClass/>} />
-
+        <Route path="/join/class" element={<JoinClass/>} />
 
 
 
