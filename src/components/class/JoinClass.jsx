@@ -1,16 +1,32 @@
 import axios from 'axios';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { Context } from '../../main';
 
 function JoinClass() {
-    const [classCode, setClassCode] = useState("");  // User enters class code
-    const [classData, setClassData] = useState(null);  // Stores found class details
-    const [classDisplayName, setClassDisplayName] = useState("");  // User display name for request
     const { isAuthorized } = useContext(Context);
+    const navigateTo = useNavigate();
+
+    // const navigate = useNavigate(); // Get navigation function
+    useEffect(() => {
+        if (isAuthorized === false) {
+            navigateTo("/");
+        }
+    }, [isAuthorized, navigateTo]);
+
+    if (isAuthorized === undefined) {
+        return <p>Loading...</p>;
+    }
+    const [classCode, setClassCode] = useState("");  
+    const [classData, setClassData] = useState(null);  
+    const [classDisplayName, setClassDisplayName] = useState("");
 
     const findClass = async (e) => {
         e.preventDefault();
+        if (!isAuthorized) {
+            return toast.error("You need to be logged in to find a class.");
+        }    
         try {
             const { data } = await axios.get(`http://localhost:5000/api/class/found/bycode?classCode=${classCode}`, {
                 withCredentials: true,

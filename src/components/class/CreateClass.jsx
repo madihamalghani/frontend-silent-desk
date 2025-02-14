@@ -19,7 +19,6 @@ function CreateClass() {
         }
     }, [isAuthorized, navigateTo]);
 
-    // Prevent render issues while checking authorization
     if (isAuthorized === undefined) {
         return <p>Loading...</p>;
     }
