@@ -5,6 +5,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import "./App.css";
 import Footer from './components/Layout/Footer.jsx';
 import Navbar from './components/Layout/Navbar.jsx';
+import GetAllPendingRequests from './components/admin/GetAllPendingRequests.jsx';
 import AdminDashboard from './components/admin/adminDashboard.jsx';
 import Login from './components/auth.js/Login.jsx';
 import Register from './components/auth.js/Register.jsx';
@@ -16,44 +17,44 @@ import Home from './components/homePage/Home.jsx';
 import NotFound from './components/notFound/notFound.jsx';
 import { Context } from './main';
 function App() {
-    const {isAuthorized,setIsAuthorized,user,setUser} =useContext(Context);
-    useEffect(()=>{
-    const fetchUser=async ()=>{
-      try{
-        const response=await axios.get("http://localhost:5000/api/auth/all/users",{withCredentials:true})
-        setUser(response.data.user)
-        setIsAuthorized(true)
-      }
-      catch(error){
-        setIsAuthorized(false)
-      }
-    }
-    fetchUser();
-    // },[isAuthorized])
-  },[])
+    const { isAuthorized, setIsAuthorized, user, setUser } = useContext(Context);
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const response = await axios.get("http://localhost:5000/api/auth/all/users", { withCredentials: true })
+                setUser(response.data.user)
+                setIsAuthorized(true)
+            }
+            catch (error) {
+                setIsAuthorized(false)
+            }
+        }
+        fetchUser();
+        // },[isAuthorized])
+    }, [])
 
 
 
-  return (
+    return (
 
-    <>
-    
-      <Router>
-      <Navbar/>
-        <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/register" element={<Register/>} />
-        <Route path="/login" element={<Login/>} />
-        <Route path="*" element={<NotFound/>} />
-        <Route path="/createclass" element={<CreateClass/>} />
-        <Route path="/admin/dashboard" element={<AdminDashboard/>} />
-        <Route path="/admin/classes" element={<AdminClass/>} />
-        <Route path="/member/classes" element={<MemberClass/>} />
-        <Route path="/join/class" element={<JoinClass/>} />
+        <>
+
+            <Router>
+                <Navbar />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="*" element={<NotFound />} />
+                    <Route path="/createclass" element={<CreateClass />} />
+                    <Route path="/admin/dashboard" element={<AdminDashboard />} />
+                    <Route path="/admin/classes" element={<AdminClass />} />
+                    <Route path="/member/classes" element={<MemberClass />} />
+                    <Route path="/join/class" element={<JoinClass />} />
+                    <Route path="/class/:id/pending-requests" element={<GetAllPendingRequests />} />
 
 
-
-          {/* 
+                    {/* 
           <Route path="/jobs/getall" element={<Jobs/>} />
           <Route path="/job/:id" element={<JobDetails/>} />
           <Route path="/job/post" element={<PostJobs/>} />
@@ -62,12 +63,12 @@ function App() {
 
           <Route path="/application/:id" element={<Application/>} />
           <Route path="/application/me" element={<MyApplications/>} /> */}
-        </Routes>
-        <Footer/>
-        <Toaster/>
-      </Router>
-    </>
-  )
+                </Routes>
+                <Footer />
+                <Toaster />
+            </Router>
+        </>
+    )
 }
 
 export default App

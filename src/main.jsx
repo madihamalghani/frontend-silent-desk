@@ -21,7 +21,8 @@ const AppWrapper = () => {
             loading, setLoading,
             error, setError,
             classes, setClasses,
-            messages, setMessages }}>
+            messages, setMessages,
+            classId,setClassId }}>
             <App />
         </Context.Provider>
     );

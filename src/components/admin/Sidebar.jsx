@@ -30,7 +30,7 @@ function Sidebar() {
             </li>
             {/* if admin show request */}
             <li>
-                <Link to="/pending-requests-admin.html" className="nav-link link-body-emphasis">
+                <Link to={`/class/${id}/pending-requests`} className="nav-link link-body-emphasis">
                 <img className="sidebar-img" src="../src/assets/requests.png"/>
                     Requests
                 </Link>
