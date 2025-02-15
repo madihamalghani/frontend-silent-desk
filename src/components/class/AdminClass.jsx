@@ -1,12 +1,10 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../../main";
-import Sidebar from "../admin/Sidebar";
-
+import SidebarDashboard from "../admin/SidebarDashboard";
 function AdminClass() {
-    const [adminClass, setAdminClass] = useState([]); 
-    const { isAuthorized } = useContext(Context);
+    const { isAuthorized, classes, setClasses, setSelectedClassId } = useContext(Context);
     const navigateTo = useNavigate();
 
     useEffect(() => {
@@ -14,17 +12,17 @@ function AdminClass() {
             .get("http://localhost:5000/api/class/admin/classes", { withCredentials: true })
             .then((res) => {
                 if (res.data && Array.isArray(res.data.classes)) {
-                    setAdminClass(res.data.classes);
+                    setClasses(res.data.classes); // Store class objects in context
                 } else {
                     console.error("Unexpected API response format:", res.data);
-                    setAdminClass([]); 
+                    setClasses([]);
                 }
             })
             .catch((error) => {
                 console.error("Error fetching classes:", error);
-                setAdminClass([]); 
+                setClasses([]);
             });
-    }, []);
+    }, [setClasses]);
 
     useEffect(() => {
         if (isAuthorized === false) {
@@ -36,37 +34,52 @@ function AdminClass() {
         return <p>Loading...</p>;
     }
 
+    // Function to set the selected class ID when a class is chosen
+    const handleSelectClass = (id) => {
+        setSelectedClassId(id);
+    };
+
     return (
+        <>
         <div className="dashboard-container mb-4">
-            <Sidebar />
+            <SidebarDashboard />
             <div>
                 <div className="feature-container text-center">
                     <h2 className="feature-heading">Welcome to your Classes</h2>
                 </div>
 
                 <div className="container request-container">
-                    <section className="my-classes" key={adminClass.length}>
+                    <section className="my-classes">
                         <h2 className="mb-4 request-heading">My Classes</h2>
-
                         <div>
-                            {adminClass.length > 0 ? (
-                                adminClass.map((element) => (
+                            {classes.length > 0 ? (
+                                classes.map((element) => (
                                     <div key={element._id} className="class-card mb-6">
                                         <p>{element.name}</p>
                                         <p>Class Code: {element.classCode}</p>
-                                        <button className="manage-btn">
-                                            <Link to={`/class/${element._id}`}>Manage Class</Link>
+                                        <button
+                                            className="manage-btn"
+                                            onClick={() => handleSelectClass(element._id)}
+                                        >
+                                            <Link to={`/class/${element._id}/dashboard`}>Select Class</Link>
                                         </button>
                                     </div>
                                 ))
                             ) : (
-                                <p>No classes available.</p> 
+                                <p>No classes available.</p>
                             )}
                         </div>
+                        {/* Optionally, display the selected class ID for debugging */}
+                        {/** 
+                        <div>
+                          <h3>Selected Class ID: {selectedClassId}</h3>
+                        </div>
+                        **/}
                     </section>
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

@@ -1,63 +1,87 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { Context } from '../../main';
+
 function Sidebar() {
+    const { selectedClassId } = useContext(Context);
+
     return (
-
-    <div className="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary sidebar" >
-        <h3 className="d-flex align-items-center ">
-            <img className="profile_dashboard" src="../src/assets/username.png" />
-        Admin
-        </h3>
-        <hr/>
-        <ul className="nav nav-pills flex-column mb-auto">
-            <li className="nav-item">
-                <Link to="/" className="nav-link link-body-emphasis" aria-current="page">
-                    <img className="sidebar-img" src="../src/assets/Home.png"/>
-                    Home
-                </Link>
-            </li>
-            <li>
-                <Link to="/admin/classes" className="nav-link link-body-emphasis">
-                    <img className="sidebar-img" src="../src/assets/myclasses.png" />
-                    My Classes
-                </Link>
-            </li>
-            <li>
-                <Link to="/member/classes" className="nav-link link-body-emphasis">
-                    <img className="sidebar-img" src="../src/assets/myclasses.png" />
-                    Membership Class
-                </Link>
-            </li>
-            {/* if admin show request */}
-            <li>
-                <Link to={`/class/${id}/pending-requests`} className="nav-link link-body-emphasis">
-                <img className="sidebar-img" src="../src/assets/requests.png"/>
-                    Requests
-                </Link>
-            </li>
-            <li>
-                <Link to="/messages" className="nav-link link-body-emphasis">
-                    <img className="sidebar-img" src="../src/assets/mail.png"/>
-                    Messages
-                </Link>
-            </li>
-            <li>
-                <Link to="/setting" className="nav-link link-body-emphasis">
-                    <img className="sidebar-img" src="../src/assets/setting.png" />
-                    Settings
-                </Link>
-            </li>
-            <li>
-                <Link to="/" className="nav-link link-body-emphasis">
-                    <img className="sidebar-img" src="../src/assets/logout.png" />
-                    Logout
-                </Link>
-            </li>
-        </ul>
-        <hr/>
-
-    </div>
-    )
+        <div className="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary sidebar">
+            <h3 className="d-flex align-items-center">
+                {/* <img className="profile_dashboard" src="../src/assets/username.png"  /> */}
+                Admin
+            </h3>
+            <hr />
+            <ul className="nav nav-pills flex-column mb-auto">
+                <li className="nav-item">
+                    <Link to="/" className="nav-link link-body-emphasis" aria-current="page">
+                        {/* <img className="sidebar-img" src="../src/assets/Home.png"  /> */}
+                        Home
+                    </Link>
+                </li>
+                
+                
+                {/* If a class is selected, show the dynamic Requests link */}
+                <li>
+                    {selectedClassId ? (
+                        <Link to={`/class/${selectedClassId}/pending-requests`} className="nav-link link-body-emphasis">
+                            {/* <img className="sidebar-img" src="../src/assets/requests.png"  /> */}
+                            Requests
+                        </Link>
+                    ) : (
+                        // Optionally, you can disable or hide the link if no class is selected
+                        <span className="nav-link disabled link-body-emphasis">
+                            {/* <img className="sidebar-img" src="../src/assets/requests.png"  /> */}
+                            Requests
+                        </span>
+                    )}
+                </li>
+                <li>
+                    <Link to="/messages" className="nav-link link-body-emphasis">
+                        {/* <img className="sidebar-img" src="../src/assets/mail.png"  /> */}
+                        Messages
+                    </Link>
+                </li>
+                <li>
+                    <Link to={`/class/:id/approved/members`} className="nav-link link-body-emphasis">
+                        {/* <img className="sidebar-img" src="members"  /> */}
+                        Members
+                    </Link>
+                </li>
+                <li>
+                    <Link to={`/class/:id/approved/members`} className="nav-link link-body-emphasis">
+                        {/* <img className="sidebar-img" src="members"  /> */}
+                        Update Status
+                    </Link>
+                </li>
+                <li>
+                    <Link to={`/class/:id/update/details`} className="nav-link link-body-emphasis">
+                        {/* <img className="sidebar-img" src="members"  /> */}
+                        Update Class Details
+                    </Link>
+                </li>
+                <li>
+                    <Link to={`/class/:id/approved/members`} className="nav-link link-body-emphasis">
+                        {/* <img className="sidebar-img" src="members"  /> */}
+                        Manage Class
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/setting" className="nav-link link-body-emphasis">
+                        {/* <img className="sidebar-img" src="../src/assets/setting.png" /> */}
+                        Settings
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/" className="nav-link link-body-emphasis">
+                        {/* <img className="sidebar-img" src="../src/assets/logout.png" /> */}
+                        Logout
+                    </Link>
+                </li>
+            </ul>
+            <hr />
+        </div>
+    );
 }
 
 export default Sidebar;

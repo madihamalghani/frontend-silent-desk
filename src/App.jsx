@@ -6,6 +6,7 @@ import "./App.css";
 import Footer from './components/Layout/Footer.jsx';
 import Navbar from './components/Layout/Navbar.jsx';
 import GetAllPendingRequests from './components/admin/GetAllPendingRequests.jsx';
+import SelectedClass from './components/admin/SelectedClass.jsx';
 import AdminDashboard from './components/admin/adminDashboard.jsx';
 import Login from './components/auth.js/Login.jsx';
 import Register from './components/auth.js/Register.jsx';
@@ -13,7 +14,9 @@ import AdminClass from './components/class/AdminClass.jsx';
 import CreateClass from './components/class/CreateClass.jsx';
 import JoinClass from './components/class/JoinClass.jsx';
 import MemberClass from './components/class/MemberClass.jsx';
+import UpdateClass from './components/class/UpdateClass.jsx';
 import Home from './components/homePage/Home.jsx';
+import ApprovedMembers from './components/members/ApprovedMembers.jsx';
 import NotFound from './components/notFound/notFound.jsx';
 import { Context } from './main';
 function App() {
@@ -52,7 +55,9 @@ function App() {
                     <Route path="/member/classes" element={<MemberClass />} />
                     <Route path="/join/class" element={<JoinClass />} />
                     <Route path="/class/:id/pending-requests" element={<GetAllPendingRequests />} />
-
+                    <Route path="/class/:id/dashboard" element={<SelectedClass/>} />
+                    <Route path="/class/:id/approved/members" element={<ApprovedMembers/>} />
+                    <Route path="/class/:id/update/details" element={<UpdateClass/>} />
 
                     {/* 
           <Route path="/jobs/getall" element={<Jobs/>} />

@@ -1160,3 +1160,8 @@ h1 {
   height: 400px;
   width:400px;
 }
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}

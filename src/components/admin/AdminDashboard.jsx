@@ -2,7 +2,7 @@ import { default as React, useContext } from 'react';
 import { toast } from "react-hot-toast";
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../../main';
-import Sidebar from './Sidebar';
+import AdminClass from '../class/AdminClass';
 function adminDashboard() {
     const { isAuthorized } = useContext(Context);
 
@@ -15,8 +15,11 @@ function adminDashboard() {
     }
 
     return (
-        <Sidebar/>
-        
+        <>
+                    <AdminClass/>
+
+        </>
+        // <Sidebar/>
     )
 }
 

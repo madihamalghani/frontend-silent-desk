@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../../main";
-import Sidebar from "../admin/Sidebar";
+import SidebarDashboard from "../admin/SidebarDashboard";
 
 function MemberClass() {
     const [memberClass, setMemberClass] = useState([]);
@@ -38,7 +38,7 @@ function MemberClass() {
 
     return (
         <div className="dashboard-container mb-4">
-            <Sidebar />
+            <SidebarDashboard />
             <div>
                 <div className="feature-container text-center">
                     <h2 className="feature-heading">Welcome to your Classes</h2>
