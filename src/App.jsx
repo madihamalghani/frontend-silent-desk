@@ -5,6 +5,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import "./App.css";
 import Footer from './components/Layout/Footer.jsx';
 import Navbar from './components/Layout/Navbar.jsx';
+import AdminStatusUpdate from './components/admin/AdminStatusUpdate.jsx';
 import GetAllPendingRequests from './components/admin/GetAllPendingRequests.jsx';
 import SelectedClass from './components/admin/SelectedClass.jsx';
 import AdminDashboard from './components/admin/adminDashboard.jsx';
@@ -58,6 +59,7 @@ function App() {
                     <Route path="/class/:id/dashboard" element={<SelectedClass/>} />
                     <Route path="/class/:id/approved/members" element={<ApprovedMembers/>} />
                     <Route path="/class/:id/update/details" element={<UpdateClass/>} />
+                    <Route path="/class/:id/admin/update" element={<AdminStatusUpdate/>} />
 
                     {/* 
           <Route path="/jobs/getall" element={<Jobs/>} />

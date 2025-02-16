@@ -62,7 +62,7 @@ function ApprovedMembers() {
                         <tbody>
                             {members.length === 0 ? (
                                 <tr>
-                                    <td colSpan="4">No approved members found.</td>
+                                    <td colSpan="3">No approved members found.</td>
                                 </tr>
                             ) : (
                                 members.map((member) => (
@@ -71,7 +71,7 @@ function ApprovedMembers() {
                                         <td>{member.classDisplayName}</td>
                                         <td>
                                             <button className="approve-btn">
-                                                <a href="/send-now.html" className="link-decoration">
+                                                <a href="/send-now" className="link-decoration">
                                                     Select Member
                                                 </a>
                                             </button>

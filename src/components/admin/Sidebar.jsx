@@ -49,7 +49,7 @@ function Sidebar() {
                     </Link>
                 </li>
                 <li>
-                    <Link to={`/class/:id/approved/members`} className="nav-link link-body-emphasis">
+                    <Link to={`/class/:id/admin/update`} className="nav-link link-body-emphasis">
                         {/* <img className="sidebar-img" src="members"  /> */}
                         Update Status
                     </Link>
