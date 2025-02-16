@@ -11,14 +11,12 @@ function AdminStatusUpdate() {
     const [loading, setLoading] = useState(true);
     const navigateTo = useNavigate();
 
-    // Redirect if not authorized
     useEffect(() => {
         if (!isAuthorized) {
             navigateTo("/login");
         }
     }, [isAuthorized, navigateTo]);
 
-    // Redirect if no class is selected
     useEffect(() => {
         if (!selectedClassId) {
             navigateTo("/");
@@ -100,9 +98,32 @@ function AdminStatusUpdate() {
         }
     };
 
+
+    // remove member from class---------------------
+    const handleRemoveMember = async (memberUserId) => {
+        try {
+            await axios.delete(
+                `http://localhost:5000/api/membership/remove/member/${selectedClassId}`,
+                {
+                    withCredentials: true,
+                    data: { userId: memberUserId },
+                }
+            );
+            toast.success("User removed from class successfully!");
+            setMembers((prev) => prev.filter((member) => member.userId._id !== memberUserId));
+        } catch (error) {
+            console.error("Error removing member:", error.response?.data || error);
+            if (error.response && error.response.data) {
+                toast.error(`Error removing member: ${error.response.data.message}`);
+            } else {
+                toast.error("Error removing member");
+            }
+        }
+    };
+
+
     if (loading) return <p>Loading...</p>;
 
-    // Determine if the logged-in user is an admin by checking if they appear in the members list with role "admin"
     const isLoggedUserAdmin = members.some(
         (member) => member.userId._id === user._id && member.role === "admin"
     );
@@ -141,7 +162,7 @@ function AdminStatusUpdate() {
                                                             <button
                                                                 className="approve-btn"
                                                                 onClick={() => handlePromote(member.userId._id)}
-                                                                
+
                                                                 title={
                                                                     member.role === "admin"
                                                                         ? "Member is already an admin"
@@ -153,7 +174,6 @@ function AdminStatusUpdate() {
                                                             <button
                                                                 className="approve-btn"
                                                                 onClick={() => handleDemote(member.userId._id)}
-                                                               
                                                                 title={
                                                                     member.role !== "admin"
                                                                         ? "Member is not an admin"
@@ -162,15 +182,18 @@ function AdminStatusUpdate() {
                                                             >
                                                                 Demote to Member
                                                             </button>
+                                                            <button
+                                                                className="reject-btn"
+                                                                onClick={() => handleRemoveMember(member.userId._id)}
+                                                                title="Remove this member from class"
+                                                            >
+                                                                Remove Member
+                                                            </button>
                                                         </>
                                                     ) : (
                                                         <span>No actions available</span>
                                                     )}
-                                                    <button className="reject-btn">
-                                                        <a href="/send-now" className="link-decoration">
-                                                            Remove Member
-                                                        </a>
-                                                    </button>
+
                                                 </td>
                                             </tr>
                                         ))}

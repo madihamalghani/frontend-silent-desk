@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { Context } from "../../main"; // Adjust the path as needed
+import { Context } from "../../main";
 import Sidebar from "../admin/Sidebar";
 
 function UpdateClass() {
