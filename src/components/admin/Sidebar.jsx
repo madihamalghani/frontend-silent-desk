@@ -61,13 +61,7 @@ function Sidebar() {
                     </Link>
                 </li>
                 <li>
-                    <Link to={`/class/:id/approved/members`} className="nav-link link-body-emphasis">
-                        {/* <img className="sidebar-img" src="members"  /> */}
-                        Manage Class
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/setting" className="nav-link link-body-emphasis">
+                    <Link to="/class/:id/user/settings" className="nav-link link-body-emphasis">
                         {/* <img className="sidebar-img" src="../src/assets/setting.png" /> */}
                         Settings
                     </Link>

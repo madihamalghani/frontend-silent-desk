@@ -11,10 +11,12 @@ import SelectedClass from './components/admin/SelectedClass.jsx';
 import AdminDashboard from './components/admin/adminDashboard.jsx';
 import Login from './components/auth.js/Login.jsx';
 import Register from './components/auth.js/Register.jsx';
+import SettingUser from './components/auth.js/SettingUser.jsx';
 import AdminClass from './components/class/AdminClass.jsx';
 import CreateClass from './components/class/CreateClass.jsx';
 import JoinClass from './components/class/JoinClass.jsx';
 import MemberClass from './components/class/MemberClass.jsx';
+import Setting from './components/class/Setting.jsx';
 import UpdateClass from './components/class/UpdateClass.jsx';
 import Home from './components/homePage/Home.jsx';
 import ApprovedMembers from './components/members/ApprovedMembers.jsx';
@@ -60,6 +62,8 @@ function App() {
                     <Route path="/class/:id/approved/members" element={<ApprovedMembers/>} />
                     <Route path="/class/:id/update/details" element={<UpdateClass/>} />
                     <Route path="/class/:id/admin/update" element={<AdminStatusUpdate/>} />
+                    <Route path="/class/:id/user/settings" element={<Setting/>} />
+                    <Route path="/class/user/settings" element={<SettingUser/>} />
 
                     {/* 
           <Route path="/jobs/getall" element={<Jobs/>} />
