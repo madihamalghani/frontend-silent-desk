@@ -18,7 +18,7 @@ function SidebarDashboard() {
                 <li>
                     <Link to="/admin/classes" className="nav-link link-body-emphasis">
                         <img className="sidebar-img" src="../src/assets/myclasses.png"  />
-                        Select Classes
+                        Admin Classes
                     </Link>
                 </li>
                 <li>

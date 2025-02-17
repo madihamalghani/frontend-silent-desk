@@ -66,15 +66,10 @@ function AdminClass() {
                                     </div>
                                 ))
                             ) : (
-                                <p>No classes available.</p>
+                                <p>You are not admin in any class.</p>
                             )}
                         </div>
-                        {/* Optionally, display the selected class ID for debugging */}
-                        {/** 
-                        <div>
-                          <h3>Selected Class ID: {selectedClassId}</h3>
-                        </div>
-                        **/}
+
                     </section>
                 </div>
             </div>

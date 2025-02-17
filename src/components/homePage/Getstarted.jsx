@@ -40,7 +40,7 @@ function Getstarted() {
                         without revealing your identity.</p>
 
                     <button className="button">
-                        <span className="button-content" onClick={() => handleNavigation('/joinclass')}>Join Class</span>
+                        <span className="button-content" onClick={() => handleNavigation('/join/class')}>Join Class</span>
                     </button>
                 </div>
             </div>
