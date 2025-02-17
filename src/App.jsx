@@ -20,6 +20,13 @@ import Setting from './components/class/Setting.jsx';
 import UpdateClass from './components/class/UpdateClass.jsx';
 import Home from './components/homePage/Home.jsx';
 import ApprovedMembers from './components/members/ApprovedMembers.jsx';
+import DealWithMessages from './components/message/DealWithMessages.jsx';
+import InboxMessages from './components/message/InboxMessages.jsx';
+import MessageSender from './components/message/MessageSender.jsx';
+// import ReplyMessage from './components/message/ReplyMessage.jsx';
+import ReplyMessage from './components/message/ReplyMessage.jsx';
+import ReplyToMessages from './components/message/ReplySpecificMessage.jsx';
+import SentMessages from './components/message/SentMessages.jsx';
 import NotFound from './components/notFound/notFound.jsx';
 import { Context } from './main';
 function App() {
@@ -64,6 +71,12 @@ function App() {
                     <Route path="/class/:id/admin/update" element={<AdminStatusUpdate/>} />
                     <Route path="/class/:id/user/settings" element={<Setting/>} />
                     <Route path="/class/user/settings" element={<SettingUser/>} />
+                    <Route path="/class/send/message" element={<MessageSender/>} />
+                    <Route path="/class/inbox/message/received" element={<InboxMessages/>} />
+                    <Route path="/class/inbox/message/sent" element={<SentMessages/>} />
+                    <Route path="/class/inbox/message/setting" element={<DealWithMessages/>} />
+                    <Route path="/reply/:messageId" element={<ReplyToMessages />} />
+                    <Route path="/reply/message/:messageId" element={<ReplyMessage />} />
 
                     {/* 
           <Route path="/jobs/getall" element={<Jobs/>} />

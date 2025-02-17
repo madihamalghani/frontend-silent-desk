@@ -15,6 +15,7 @@ const AppWrapper = () => {
     const [classes, setClasses] = useState([]); // Store classes user is in
     const [messages, setMessages] = useState([]); // Store messages in class
     const [selectedClassId, setSelectedClassId] = useState(null);
+    const [ selectedRecipientId,setSelectedRecipientId]=useState(null);
 
     
     return (
@@ -24,7 +25,8 @@ const AppWrapper = () => {
             error, setError,
             classes, setClasses,
             messages, setMessages,
-            selectedClassId, setSelectedClassId
+            selectedClassId, setSelectedClassId,
+            selectedRecipientId,setSelectedRecipientId
 
             }}>
             <App />

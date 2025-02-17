@@ -28,7 +28,7 @@ function GetAllPendingRequests() {
                 })
                 .catch((error) => {
                     console.error("Error fetching pending requests:", error);
-                    navigateTo("/notfound");
+toast.error("You are not an admin")
                 });
         }
     }, [selectedClassId, navigateTo]);
@@ -111,7 +111,7 @@ function GetAllPendingRequests() {
                                                                 manageRequest(request.userId._id, "reject")
                                                             }
                                                         >
-                                                            Reject
+                                                            Block
                                                         </button>
                                                     </td>
                                                 </tr>

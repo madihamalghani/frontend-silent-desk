@@ -19,8 +19,8 @@ function Sidebar() {
                         Home
                     </Link>
                 </li>
-                
-                
+
+
                 {/* If a class is selected, show the dynamic Requests link */}
                 <li>
                     {selectedClassId ? (
@@ -37,9 +37,27 @@ function Sidebar() {
                     )}
                 </li>
                 <li>
-                    <Link to="/messages" className="nav-link link-body-emphasis">
+                    <Link to="/class/inbox/message/received" className="nav-link link-body-emphasis">
                         {/* <img className="sidebar-img" src="../src/assets/mail.png"  /> */}
-                        Messages
+                        Received Messages
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/class/inbox/message/setting" className="nav-link link-body-emphasis">
+                        {/* <img className="sidebar-img" src="../src/assets/mail.png"  /> */}
+                        Sent Operations
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/reply/:messageId" className="nav-link link-body-emphasis">
+                        {/* <img className="sidebar-img" src="../src/assets/mail.png"  /> */}
+                        Reply message
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/class/inbox/message/sent" className="nav-link link-body-emphasis">
+                        {/* <img className="sidebar-img" src="../src/assets/mail.png"  /> */}
+                        Sent Messages
                     </Link>
                 </li>
                 <li>

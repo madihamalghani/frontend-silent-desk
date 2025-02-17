@@ -26,7 +26,6 @@ function Setting() {
                     `http://localhost:5000/api/membership/list/members/${selectedClassId}`,
                     { withCredentials: true }
                 );
-                console.log("API Response:", response.data);
 
                 const members = response.data.members;
                 const loggedUserMembership = members.find(

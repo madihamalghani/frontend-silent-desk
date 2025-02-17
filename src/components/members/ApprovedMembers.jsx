@@ -5,7 +5,7 @@ import { Context } from "../../main"; // adjust the path as necessary
 import Sidebar from "../admin/Sidebar";
 
 function ApprovedMembers() {
-    const { selectedClassId, isAuthorized, user } = useContext(Context);
+    const { selectedClassId, isAuthorized, setSelectedRecipientId } = useContext(Context);
     const [members, setMembers] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigateTo = useNavigate();
@@ -43,8 +43,16 @@ function ApprovedMembers() {
         }
     }, [selectedClassId, navigateTo]);
 
-    if (loading) return <p>Loading...</p>;
+    // Handler for selecting a member to message
+    const handleSelectMember = (member) => {
+        // Extract the recipient's ID from the nested userId object
+        const recipientId = member.userId._id;
+        setSelectedRecipientId(recipientId);
+        // Navigate to the messaging page
+        navigateTo("/class/send/message");
+    };
 
+    if (loading) return <p>Loading...</p>;
 
     return (
         <div className="dashboard-container mb-4">
@@ -70,13 +78,13 @@ function ApprovedMembers() {
                                         <th>Member:</th>
                                         <td>{member.classDisplayName}</td>
                                         <td>
-                                            <button className="approve-btn">
-                                                <a href="/send-now" className="link-decoration">
-                                                    Select Member
-                                                </a>
+                                            <button 
+                                                className="approve-btn"
+                                                onClick={() => handleSelectMember(member)}
+                                            >
+                                                Select Member
                                             </button>
                                         </td>
-                                        
                                     </tr>
                                 ))
                             )}
