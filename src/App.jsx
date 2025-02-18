@@ -24,6 +24,7 @@ import DealWithMessages from './components/message/DealWithMessages.jsx';
 import InboxMessages from './components/message/InboxMessages.jsx';
 import MessageSender from './components/message/MessageSender.jsx';
 // import ReplyMessage from './components/message/ReplyMessage.jsx';
+import Announcement from './components/announcement/Announcement.jsx';
 import ReplyMessage from './components/message/ReplyMessage.jsx';
 import ReplyToMessages from './components/message/ReplySpecificMessage.jsx';
 import SentMessages from './components/message/SentMessages.jsx';
@@ -77,6 +78,7 @@ function App() {
                     <Route path="/class/inbox/message/setting" element={<DealWithMessages/>} />
                     <Route path="/reply/:messageId" element={<ReplyToMessages />} />
                     <Route path="/reply/message/:messageId" element={<ReplyMessage />} />
+                    <Route path="/all/announcements/:id" element={<Announcement/>} />
 
                     {/* 
           <Route path="/jobs/getall" element={<Jobs/>} />
