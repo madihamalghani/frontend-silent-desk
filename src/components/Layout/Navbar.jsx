@@ -44,6 +44,7 @@ function Navbar() {
                         <>
                             <li className="nav-item"><Link to="/register" className="nav-link navlinks fontnav text-white">Register</Link></li>
                             <li className="nav-item"><Link to="/login" className="nav-link navlinks fontnav text-white">Login</Link></li>
+                            <li className="nav-item"><Link to="/how-it-works" className="nav-link navlinks fontnav text-white">How it Works</Link></li>
 
                         </>
                     )}

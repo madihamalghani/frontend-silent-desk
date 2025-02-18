@@ -25,6 +25,7 @@ import InboxMessages from './components/message/InboxMessages.jsx';
 import MessageSender from './components/message/MessageSender.jsx';
 // import ReplyMessage from './components/message/ReplyMessage.jsx';
 import Announcement from './components/announcement/Announcement.jsx';
+import HowItWorks from './components/how it works/HowItWorks.jsx';
 import ReplyMessage from './components/message/ReplyMessage.jsx';
 import ReplyToMessages from './components/message/ReplySpecificMessage.jsx';
 import SentMessages from './components/message/SentMessages.jsx';
@@ -79,16 +80,7 @@ function App() {
                     <Route path="/reply/:messageId" element={<ReplyToMessages />} />
                     <Route path="/reply/message/:messageId" element={<ReplyMessage />} />
                     <Route path="/all/announcements/:id" element={<Announcement/>} />
-
-                    {/* 
-          <Route path="/jobs/getall" element={<Jobs/>} />
-          <Route path="/job/:id" element={<JobDetails/>} />
-          <Route path="/job/post" element={<PostJobs/>} />
-          <Route path="/job/me" element={<MyJobs/>} />
-          <Route path="*" element={<NotFound/>} />
-
-          <Route path="/application/:id" element={<Application/>} />
-          <Route path="/application/me" element={<MyApplications/>} /> */}
+                    <Route path="/how-it-works" element={<HowItWorks/>} />
                 </Routes>
                 <Footer />
                 <Toaster />

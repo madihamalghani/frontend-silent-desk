@@ -943,6 +943,11 @@ h1 {
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  margin-top: 10px;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin-left: 10px;
 }
 
 .remove-btn:hover {
@@ -1031,10 +1036,10 @@ h1 {
       width: 180px;
   }
 
-  .request-container {
+  /* .request-container {
       margin-left: 200px;
       width: calc(100% - 200px);
-  }
+  } */
 
   .my-classes,
   .enrolled-students,
