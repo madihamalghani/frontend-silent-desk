@@ -22,7 +22,7 @@ function CallToAction() {
                     <p>Join your class, send anonymous feedback, and engage in honest conversations today!</p>
                     <div className="cta-buttons">
                         <button className="btn btn-light" onClick={() => handleNavigation('/createclass')}>Create Class</button>
-                        <button className="cta-btn secondary" onClick={() => handleNavigation('/joinclass')}>Join Class</button>
+                        <button className="cta-btn secondary" onClick={() => handleNavigation('/join/class')}>Join Class</button>
                     </div>
                 </div>
             </section>

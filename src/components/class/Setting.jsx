@@ -121,11 +121,7 @@ function Setting() {
                                     </button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    Do you want to delete your account from the website permanently?
-                                </td>
-                            </tr>
+
                         </tbody>
                     </table>
                 </section>

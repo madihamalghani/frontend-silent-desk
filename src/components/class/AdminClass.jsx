@@ -55,7 +55,7 @@ function AdminClass() {
                             {classes.length > 0 ? (
                                 classes.map((element) => (
                                     <div key={element._id} className="class-card mb-6">
-                                        <p>{element.name}</p>
+                                        <p>Class Name: {element.name}</p>
                                         <p>Class Code: {element.classCode}</p>
                                         <button
                                             className="manage-btn"

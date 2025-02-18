@@ -58,7 +58,7 @@ function MemberClass() {
                             {memberClass.length > 0 ? (
                                 memberClass.map((element) => (
                                     <div key={element._id} className="class-card mb-6">
-                                        <p>{element.name}</p>
+                                        <p>Class Name: {element.name}</p>
                                         <p>Class Code: {element.classCode || "N/A"}</p>
                                         <button
                                             className="manage-btn"

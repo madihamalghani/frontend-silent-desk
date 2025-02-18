@@ -33,7 +33,6 @@ function Navbar() {
                         <>
                             <li className="nav-item"><Link to="/createclass" className="nav-link navlinks fontnav text-white">Create Class</Link></li>
                             <li className="nav-item"><Link to="/join/class" className="nav-link navlinks fontnav text-white">Join Class</Link></li>
-                            {/* <li className="nav-item"><Link to="/allclasses" className="nav-link navlinks fontnav text-white">All Classes</Link></li> */}
                             <li className="nav-item"><Link to="/admin/dashboard" className="nav-link navlinks fontnav text-white">Dashboard</Link></li>
                             <li className="nav-item">
                                 <button className="nav-link navlinks fontnav text-white btn btn-link" onClick={handleLogout}>Logout</button>
@@ -45,7 +44,6 @@ function Navbar() {
                         <>
                             <li className="nav-item"><Link to="/register" className="nav-link navlinks fontnav text-white">Register</Link></li>
                             <li className="nav-item"><Link to="/login" className="nav-link navlinks fontnav text-white">Login</Link></li>
-                            <li className="nav-item"><Link to="/work" className="nav-link navlinks fontnav text-white">How it Works</Link></li>
 
                         </>
                     )}

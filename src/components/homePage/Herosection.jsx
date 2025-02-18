@@ -25,7 +25,7 @@ function Herosection() {
                     <button className="text-light header-button" onClick={() => handleNavigation('/createclass')}>
                         Create Class
                     </button>
-                    <button className="text-light header-button" onClick={() => handleNavigation('/joinclass')}>
+                    <button className="text-light header-button" onClick={() => handleNavigation('/join/class')}>
                         Join Class
                     </button>
                 </div>

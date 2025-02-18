@@ -58,7 +58,7 @@ function ReplyToMessages() {
                                         className="button"
                                         onClick={() => navigate(`/reply/message/${msg._id}`)} // Fix here
                                     >
-                                        <span className="button-content">Reply</span>
+                                        <span className="button-content text-white">Reply</span>
                                     </button>
                                 </div>
                             </div>
